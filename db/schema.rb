@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112045518) do
+ActiveRecord::Schema.define(version: 20150112052736) do
+
+  create_table "athletes", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "age_level"
+    t.integer  "class_level"
+    t.date     "birth_date"
+    t.date     "start_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "athletes_tournaments", id: false, force: :cascade do |t|
+    t.integer "athlete_id"
+    t.integer "tournament_id"
+  end
+
+  add_index "athletes_tournaments", ["athlete_id"], name: "index_athletes_tournaments_on_athlete_id"
+  add_index "athletes_tournaments", ["tournament_id"], name: "index_athletes_tournaments_on_tournament_id"
 
   create_table "tournaments", force: :cascade do |t|
     t.string   "name"

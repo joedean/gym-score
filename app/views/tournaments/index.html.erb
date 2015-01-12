@@ -18,14 +18,14 @@
             <th>Zip</th>
             <th>Event date</th>
             <th></th>
-        <th></th>
-        <th></th>
+            <th></th>
+            <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @tournaments) do |tournament| %>
-            <td><%= tournament.name %></td>
+            <td><%= link_to tournament.name, tournament_athletes_path(tournament) %></td>
             <td><%= tournament.venue %></td>
             <td><%= tournament.address %></td>
             <td><%= tournament.city %></td>
@@ -33,8 +33,8 @@
             <td><%= tournament.zip %></td>
             <td><%= tournament.event_date %></td>
             <td><%= link_to 'Show', tournament %></td>
-        <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-        <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
+            <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

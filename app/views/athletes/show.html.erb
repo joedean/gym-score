@@ -1,0 +1,32 @@
+<div class="page-header">
+  <%= link_to athletes_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_athlete_path(@athlete), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show athlete</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>First name:</dt>
+  <dd><%= @athlete.first_name %></dd>
+
+  <dt>Last name:</dt>
+  <dd><%= @athlete.last_name %></dd>
+
+  <dt>Age level:</dt>
+  <dd><%= @athlete.age_level %></dd>
+
+  <dt>Class level:</dt>
+  <dd><%= @athlete.class_level %></dd>
+
+  <dt>Birth date:</dt>
+  <dd><%= @athlete.birth_date %></dd>
+
+  <dt>Start date:</dt>
+  <dd><%= @athlete.start_date %></dd>
+
+</dl>
