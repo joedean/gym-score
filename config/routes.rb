@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :events
+
   resources :athletes
 
   resources :tournaments do
-    resources :athletes
+    resources :athletes do
+      resources :events
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
