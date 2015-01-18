@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150115070001) do
   create_table "events", force: :cascade do |t|
     t.integer  "tournament_id"
     t.integer  "athlete_id"
-    t.string   "name"
+    t.string   "type"
     t.float    "score"
     t.integer  "place"
     t.datetime "created_at",    null: false

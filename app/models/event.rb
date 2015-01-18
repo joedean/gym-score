@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :tournament
   belongs_to :athlete
 
+  TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBar"]
+
   def self.list(params)
     if params[:tournament_id] && params[:athlete_id]
       where(tournament_id: params[:tournament_id].to_i,

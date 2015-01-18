@@ -1,0 +1,2 @@
+class Rings < Event
+end

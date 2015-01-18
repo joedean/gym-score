@@ -1,0 +1,2 @@
+class ParallelBars < Event
+end
