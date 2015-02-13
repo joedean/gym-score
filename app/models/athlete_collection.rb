@@ -4,7 +4,7 @@ class AthleteCollection
 
   def initialize(params)
     @params = params
-    @tournament = Tournament.find(params[:tournament_id]) if params[:tournament_id]
+    @tournament = Tournament.find(params[:tournament_id]) if params[:tournament_id].present?
   end
 
   def athletes
