@@ -4,8 +4,7 @@ class AthletesController < ApplicationController
   # GET /athletes
   # GET /athletes.json
   def index
-    @tournament = Tournament.find(params[:tournament_id].to_i) unless params[:tournament_id].nil?
-    @athletes = Athlete.list(params)
+    @athlete_collection = AthleteCollection.new params
   end
 
   # GET /athletes/1

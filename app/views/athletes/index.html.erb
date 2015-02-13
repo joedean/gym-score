@@ -3,34 +3,35 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Athlete
   <% end %>
-  <h1>Listing athletes</h1>
+
+  <h1><%= tournament_name %> Athletes</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Age level</th>
-            <th>Class level</th>
-            <th>Birth date</th>
-            <th>Start date</th>
-            <th></th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Age level</th>
+        <th>Class level</th>
+        <th>Birth date</th>
+        <th>Start date</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @athletes) do |athlete| %>
-            <td><%= athlete.first_name %></td>
-            <td><%= link_to athlete.last_name, tournament_athlete_events_path(@tournament, athlete) %></td>
-            <td><%= athlete.age_level %></td>
-            <td><%= athlete.class_level %></td>
-            <td><%= athlete.birth_date %></td>
-            <td><%= athlete.start_date %></td>
-            <td><%= link_to 'Show', athlete %></td>
+      <%= content_tag_for(:tr, @athlete_collection.athletes) do |athlete| %>
+        <td><%= athlete.first_name %></td>
+        <td><%= athlete.last_name %></td>
+        <td><%= athlete.age_level %></td>
+        <td><%= athlete.class_level %></td>
+        <td><%= athlete.birth_date %></td>
+        <td><%= athlete.start_date %></td>
+        <td><%= link_to 'Show', athlete %></td>
         <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>
         <td><%= link_to 'Destroy', athlete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>

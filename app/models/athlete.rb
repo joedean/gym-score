@@ -9,4 +9,7 @@ class Athlete < ActiveRecord::Base
       all
     end
   end
+
+  def age
+  end
 end
