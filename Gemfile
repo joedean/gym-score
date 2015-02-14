@@ -49,5 +49,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Replace fixtures with factories
-  gem 'factory_girl'
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'guard-rspec'
+  gem 'timecop'
 end
