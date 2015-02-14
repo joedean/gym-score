@@ -40,6 +40,7 @@ class TournamentsController < ApplicationController
   # PATCH/PUT /tournaments/1
   # PATCH/PUT /tournaments/1.json
   def update
+    params[:tournament][:athlete_ids] ||= []
     respond_to do |format|
       if @tournament.update(tournament_params)
         format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
@@ -69,6 +70,7 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:name, :venue, :address, :city, :state, :zip, :event_date)
+      params.require(:tournament).permit(:name, :venue, :address, :city, :state,
+                                         :zip, :event_date, { athlete_ids: [] })
     end
 end

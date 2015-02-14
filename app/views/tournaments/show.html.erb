@@ -35,3 +35,21 @@
 </dl>
 
 <h4>Athletes</h4>
+<table class="table">
+  <thead>
+    <td>Athlete Name</td>
+    <td>Class Level</td>
+    <td>Age Level</td>
+    <td>Age</td>
+  </thead>
+  <tbody>
+    <% @tournament.athletes.each do |athlete| %>
+      <tr>
+        <td><%= athlete.full_name %> </td>
+        <td><%= athlete.class_level %> </td>
+        <td><%= athlete.age_level %> </td>
+        <td><%= athlete.age %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
