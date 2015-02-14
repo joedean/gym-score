@@ -14,10 +14,14 @@ class EventCollection
     end
 
     if athlete
-      results.athlete_events(athlete)
+      if results
+        results.athlete_events(athlete)
+      else
+        results = Event.athlete_events(athlete)
+      end
     end
 
-    if results.empty?
+    if results.nil?
       results = Event.all
     end
 
