@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :tournament
   belongs_to :athlete
 
-  TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBar"]
+  TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBars"]
 
   def self.tournament_events(tournament)
     where tournament: tournament

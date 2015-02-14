@@ -52,4 +52,8 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.0"
   gem 'guard-rspec'
   gem 'timecop'
+  gem 'terminal-notifier-guard', '~>1.6.4'
+  gem 'terminal-notifier', '~>1.6.2'
+  gem 'pry'
+  gem 'pry-nav'
 end
