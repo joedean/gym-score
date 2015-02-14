@@ -10,14 +10,14 @@ class EventCollection
 
   def events
     if tournament
-      results = Event.tournament_events(tournament)
+      results = Event.by_tournament(tournament)
     end
 
     if athlete
       if results
-        results.athlete_events(athlete)
+        results.by_athlete(athlete)
       else
-        results = Event.athlete_events(athlete)
+        results = Event.by_athlete(athlete)
       end
     end
 

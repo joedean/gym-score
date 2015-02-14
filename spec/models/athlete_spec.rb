@@ -37,4 +37,17 @@ RSpec.describe Athlete, :type => :model do
       end
     end
   end
+
+  describe "#add_events" do
+    let(:tournament) { create :tournament }
+    subject(:athlete) { create :athlete }
+
+    before do
+      athlete.add_events(tournament.id)
+    end
+
+    it "creates the default tournament events" do
+      expect(Event.by_athlete_tournament(athlete, tournament).count).to eq(6)
+    end
+  end
 end

@@ -12,4 +12,14 @@ class Athlete < ActiveRecord::Base
     now = Time.now.utc.to_date
     now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
   end
+
+  # Try to figure out a way to add these events via build
+  def add_events(tournament_id)
+    Event::TYPES.each do |event_type|
+      next if events.map(&:type).include? event_type
+      Event.create ( { type: event_type,
+                       tournament_id: tournament_id,
+                       athlete_id: id } )
+    end
+  end
 end
