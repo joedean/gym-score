@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Event
   <% end %>
-  <h1>Listing events</h1>
+  <h1><%= tournament_name %> <%= athlete_name %> Events</h1>
 </div>
 
 <div class="table-responsive">
@@ -18,7 +18,7 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @events) do |event| %>
+      <%= content_tag_for(:tr, @event_collection.events) do |event| %>
         <td><%= event.type %></td>
         <td><%= event.score %></td>
         <td><%= event.place %></td>

@@ -4,10 +4,11 @@ class Event < ActiveRecord::Base
 
   TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBar"]
 
-  def self.list(params)
-    if params[:tournament_id] && params[:athlete_id]
-      where(tournament_id: params[:tournament_id].to_i,
-            athlete_id: params[:athlete_id].to_i)
-    end
+  def self.tournament_events(tournament)
+    where tournament: tournament
+  end
+
+  def self.athlete_events(athlete)
+    where athlete: athlete
   end
 end

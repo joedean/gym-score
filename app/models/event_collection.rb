@@ -9,10 +9,18 @@ class EventCollection
   end
 
   def events
-    if tournament && athlete
-      #tournament.athlete
+    if tournament
+      results = Event.tournament_events(tournament)
     end
+
+    if athlete
+      results.athlete_events(athlete)
+    end
+
+    if results.empty?
+      results = Event.all
+    end
+
+    results
   end
-
-
 end
