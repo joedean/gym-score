@@ -12,13 +12,10 @@
 
 <dl class="dl-horizontal">
   <dt>Tournament:</dt>
-  <dd><%= @event.tournament %></dd>
+  <dd><%= @event.tournament.name %></dd>
 
   <dt>Athlete:</dt>
-  <dd><%= @event.athlete %></dd>
-
-  <dt>Name:</dt>
-  <dd><%= @event.name %></dd>
+  <dd><%= @event.athlete.full_name %></dd>
 
   <dt>Score:</dt>
   <dd><%= @event.score %></dd>

@@ -1,30 +1,22 @@
 class EventCollection
 
-  attr_accessor :tournament, :athlete, :params
+  attr_accessor :meet, :params
 
   def initialize(params)
     @params = params
-    @tournament = Tournament.find(params[:tournament_id]) if params[:tournament_id].present?
-    @athlete = Athlete.find(params[:athlete_id]) if params[:athlete_id].present?
+    @meet = Meet.by_athlete_tournament(params[:tournament_id], params[:athlete_id])
   end
 
   def events
-    if tournament
-      results = Event.by_tournament(tournament)
-    end
+    meet.events
+  end
 
-    if athlete
-      if results
-        results.by_athlete(athlete)
-      else
-        results = Event.by_athlete(athlete)
-      end
-    end
+  def overall_score
+    return 0 if events.map(&:score).reject(&:nil?).empty?
+    events.map(&:score).inject(:+)
+  end
 
-    if results.nil?
-      results = Event.all
-    end
-
-    results
+  def overall_place
+    meet.place
   end
 end

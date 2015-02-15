@@ -1,12 +1,10 @@
 class Tournament < ActiveRecord::Base
-  has_and_belongs_to_many :athletes
+  has_many :meets
+  has_many :athletes, through: :meets
 
-  after_save :init_tournament_events
+  after_save :init_events
 
-  private
-  def init_tournament_events
-    athletes.each { |athlete|
-      athlete.add_events(id)
-    }
+  def init_events
+    meets.each { |meet| meet.add_events }
   end
 end
