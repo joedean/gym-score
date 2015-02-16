@@ -1,18 +1,8 @@
 class Meet < ActiveRecord::Base
-  belongs_to :tournament
-  belongs_to :athlete
+  has_many :athletes_meets
+  has_many :athletes, through: :athletes_meets
+  has_and_belongs_to_many :events
 
-  has_many :events
+  DEFAULT_EVENT_TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBars"]
 
-  def self.by_athlete_tournament(tournament_id, athlete_id)
-    where(tournament_id: tournament_id, athlete_id: athlete_id).first
-  end
-
-  def add_events
-    Event::TYPES.each do |event_type|
-      next if events.map(&:type).include? event_type
-      Event.create( { type: event_type,
-                      meet_id: self.id } )
-    end
-  end
 end

@@ -13,15 +13,19 @@
         <th>Name</th>
         <th>Score</th>
         <th>Place</th>
-        <th></th>
+        <th>Personal Best</th>
       </tr>
     </thead>
     <tbody>
-      <%= content_tag_for(:tr, @event_collection.events) do |event| %>
-        <td><%= event.type.underscore.humanize %></td>
-        <td><%= best_in_place event, :score, as: :input, pattern: "[0-9]*" %></td>
-        <td><%= event.place %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+      <%= content_tag_for(:tr, @event_collection.athletes_events_meets) do |athletes_events_meet| %>
+        <td>
+          <%= link_to(athletes_events_meet.event.type.underscore.humanize,
+                      athlete_event_meets_path(@event_collection.athlete,
+                                              athletes_events_meet.event)) %>
+        </td>
+        <td><%= best_in_place athletes_events_meet, :score, as: :input, pattern: "[0-9]*" %></td>
+        <td><%= best_in_place athletes_events_meet, :place, as: :input, pattern: "[0-9]*" %></td>
+        <td><%= @event_collection.athlete.personal_best athletes_events_meet.event %></td>
       <% end %>
     </tbody>
     <tfoot>

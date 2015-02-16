@@ -1,11 +1,11 @@
 module EventsHelper
   def tournament_name
     return unless @event_collection
-    @event_collection.meet.tournament.name if @event_collection.meet.tournament
+    @event_collection.meet.name if @event_collection.meet
   end
 
   def athlete_name
     return unless @event_collection
-    @event_collection.meet.athlete.full_name if @event_collection.meet.athlete
+    @event_collection.athlete.full_name if @event_collection.athlete
   end
 end

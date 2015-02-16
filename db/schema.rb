@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115070001) do
+ActiveRecord::Schema.define(version: 20150216164501) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "first_name"
@@ -24,34 +24,46 @@ ActiveRecord::Schema.define(version: 20150115070001) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "athletes_events_meets", force: :cascade do |t|
+    t.integer  "athlete_id"
+    t.integer  "event_id"
     t.integer  "meet_id"
-    t.string   "type"
     t.decimal  "score",      precision: 8, scale: 1, default: 0.0, null: false
     t.integer  "place"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
   end
 
-  create_table "meets", force: :cascade do |t|
+  add_index "athletes_events_meets", ["athlete_id"], name: "index_athletes_events_meets_on_athlete_id"
+  add_index "athletes_events_meets", ["event_id"], name: "index_athletes_events_meets_on_event_id"
+  add_index "athletes_events_meets", ["meet_id"], name: "index_athletes_events_meets_on_meet_id"
+
+  create_table "athletes_meets", force: :cascade do |t|
     t.integer  "athlete_id"
-    t.integer  "tournament_id"
+    t.integer  "meet_id"
     t.integer  "place"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "meets", ["athlete_id"], name: "index_meets_on_athlete_id"
-  add_index "meets", ["tournament_id"], name: "index_meets_on_tournament_id"
+  add_index "athletes_meets", ["athlete_id"], name: "index_athletes_meets_on_athlete_id"
+  add_index "athletes_meets", ["meet_id"], name: "index_athletes_meets_on_meet_id"
 
-  create_table "tournaments", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
+    t.string   "type"
+    t.decimal  "start_value", precision: 8, scale: 1
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "meets", force: :cascade do |t|
     t.string   "name"
     t.string   "venue"
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.date     "event_date"
+    t.date     "meet_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

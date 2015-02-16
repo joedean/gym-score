@@ -10,7 +10,7 @@
     <% athletes.each do |athlete| %>
       <tr>
         <td>
-          <%= check_box_tag "tournament[athlete_ids][]", athlete.id, tournament.athletes.include?(athlete) %>
+          <%= check_box_tag "meet[athlete_ids][]", athlete.id, meet.athletes.include?(athlete) %>
         </td>
         <td> <%= athlete.full_name %> </td>
         <td> <%= athlete.class_level %> </td>

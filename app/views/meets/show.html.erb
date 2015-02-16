@@ -1,0 +1,57 @@
+<div class="page-header">
+  <%= link_to meets_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_meet_path(@meet), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show meet</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @meet.name %></dd>
+
+  <dt>Venue:</dt>
+  <dd><%= @meet.venue %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @meet.address %></dd>
+
+  <dt>City:</dt>
+  <dd><%= @meet.city %></dd>
+
+  <dt>State:</dt>
+  <dd><%= @meet.state %></dd>
+
+  <dt>Zip:</dt>
+  <dd><%= @meet.zip %></dd>
+
+  <dt>Meet date:</dt>
+  <dd><%= @meet.meet_date %></dd>
+
+</dl>
+
+<% unless @meet.athletes.empty? %>
+  <h4>Athletes</h4>
+  <table class="table">
+    <thead>
+      <td>Athlete Name</td>
+      <td>Class Level</td>
+      <td>Age Level</td>
+      <td>Age</td>
+    </thead>
+    <tbody>
+      <% @meet.athletes.each do |athlete| %>
+        <tr>
+          <td><%= athlete.full_name %> </td>
+          <td><%= athlete.class_level %> </td>
+          <td><%= athlete.age_level %> </td>
+          <td><%= athlete.age %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

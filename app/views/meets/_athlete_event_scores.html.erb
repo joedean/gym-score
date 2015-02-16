@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Meet Name</th>
+        <th>Meet Date</th>
+        <th>Score</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @meets) do |meet| %>
+        <td><%= link_to meet.name, meet_athlete_events_path(meet, athlete) %></td>
+        <td><%= meet.name %></td>
+        <td><%= meet.meet_date %></td>
+        <td><%= AthletesEventsMeet.score %></td>
+        <td><%= AthletesEventsMeet.place %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

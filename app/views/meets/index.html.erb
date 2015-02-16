@@ -1,0 +1,46 @@
+<div class="page-header">
+  <%= link_to new_meet_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Meet
+  <% end %>
+  <h1>Meets</h1>
+</div>
+
+<% if false && @meet_collection.athlete && @meet_collection.event %>
+  <%= render partail: 'athlete_event_scores', locals: { athlete: @meet_collection.athlete,
+                                                        event: @meet_collection.event } %>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Venue</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>Event date</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= content_tag_for(:tr, @meets) do |meet| %>
+              <td><%= link_to meet.name, meet_athletes_path(meet) %></td>
+              <td><%= meet.venue %></td>
+              <td><%= meet.address %></td>
+              <td><%= meet.city %></td>
+              <td><%= meet.state %></td>
+              <td><%= meet.zip %></td>
+              <td><%= meet.meet_date %></td>
+              <td><%= link_to 'Show', meet %></td>
+              <td><%= link_to 'Edit', edit_meet_path(meet) %></td>
+              <td><%= link_to 'Destroy', meet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

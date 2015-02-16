@@ -1,17 +1,19 @@
 class Event < ActiveRecord::Base
-  belongs_to :meet
+  has_many :athletes_events_meets
+  has_many :athletes, through: :athletes_events_meets
+  has_many :meets, through: :athletes_events_meets
 
-  TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBars"]
+  validates :type, presence: true
 
-  def self.by_tournament(tournament)
-    where tournament: tournament
+  def self.by_meet(meet)
+    eager_load(:meets).where("meets.id = ?", meet.id)
   end
 
   def self.by_athlete(athlete)
-    where athlete: athlete
+    eager_load(:athletes).where("athletes.id = ?", athlete.id)
   end
 
-  def self.by_athlete_tournament(athlete, tournament)
-    by_tournament(tournament).by_athlete(athlete)
+  def self.by_athlete_meet(athlete, meet)
+    by_meet(meet).by_athlete(athlete)
   end
 end

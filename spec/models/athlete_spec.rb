@@ -36,5 +36,13 @@ RSpec.describe Athlete, :type => :model do
         expect(athlete.age).to eq(13)
       end
     end
+
+    context "when athlete has no birth date" do
+      let(:birth_date) { nil }
+
+      it "returns nil for the age" do
+        expect(athlete.age).to be_nil
+      end
+    end
   end
 end

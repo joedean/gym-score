@@ -1,15 +1,15 @@
 class AthleteCollection
 
-  attr_accessor :tournament, :params
+  attr_accessor :meet, :params
 
   def initialize(params)
     @params = params
-    @tournament = Tournament.find(params[:tournament_id]) if params[:tournament_id].present?
+    @meet = Meet.find(params[:meet_id]) if params[:meet_id].present?
   end
 
   def athletes
-    if tournament
-      tournament.athletes
+    if meet
+      meet.athletes
     else
       Athlete.all
     end
