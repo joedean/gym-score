@@ -16,7 +16,6 @@ class EventCollection
   end
 
   def overall_score
-    return 0 if events.map(&:score).reject(&:nil?).empty?
     events.map(&:score).inject(:+)
   end
 

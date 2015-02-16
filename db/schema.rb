@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20150115070001) do
   create_table "events", force: :cascade do |t|
     t.integer  "meet_id"
     t.string   "type"
-    t.float    "score"
+    t.decimal  "score",      precision: 8, scale: 1, default: 0.0, null: false
     t.integer  "place"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
   create_table "meets", force: :cascade do |t|

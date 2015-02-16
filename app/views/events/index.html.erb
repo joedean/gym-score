@@ -16,20 +16,19 @@
         <th></th>
       </tr>
     </thead>
-    <tfoot>
-      <td>Overall</td>
-      <td><%= @event_collection.overall_score %></td>
-      <td><%= @event_collection.overall_place %></td>
-      <td></td>
-    </tfoot>
-
     <tbody>
       <%= content_tag_for(:tr, @event_collection.events) do |event| %>
         <td><%= event.type.underscore.humanize %></td>
-        <td><%= event.score %></td>
+        <td><%= best_in_place event, :score, as: :input, pattern: "[0-9]*" %></td>
         <td><%= event.place %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
       <% end %>
     </tbody>
+    <tfoot>
+      <td>Overall</td>
+      <td id="overall-score"><%= @event_collection.overall_score %></td>
+      <td><%= @event_collection.overall_place %></td>
+      <td></td>
+    </tfoot>
   </table>
 </div>

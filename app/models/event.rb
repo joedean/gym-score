@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :tournament
-  belongs_to :athlete
+  belongs_to :meet
 
   TYPES = ["Floor", "PommelHorse", "Rings", "Vault", "ParallelBars", "HighBars"]
 

@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.belongs_to :meet
       t.string :type
-      t.float :score
+      t.decimal :score, precision: 8, scale: 1, default: 0.0, null: false
       t.integer :place
 
       t.timestamps null: false
