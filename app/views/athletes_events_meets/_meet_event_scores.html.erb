@@ -28,7 +28,7 @@
       <td>Overall</td>
       <td id="overall-score"><%= overall_score %></td>
       <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, patter: "[0-9]*" %></td>
-      <td></td>
+      <td><%= @athletes_events_meet_collection.personal_best_overall_score %></td>
     </tfoot>
   </table>
 </div>

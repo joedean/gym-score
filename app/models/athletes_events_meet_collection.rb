@@ -23,6 +23,15 @@ class AthletesEventsMeetCollection
     athletes_events_meets.map(&:score).inject(:+)
   end
 
+  def personal_best_overall_score
+    overall_scores = []
+    athlete.meets.each do |meet|
+      athletes_events_meets = AthletesEventsMeet.by_athlete_meet(athlete, meet)
+      overall_scores << athletes_events_meets.map(&:score).inject(:+)
+    end
+    overall_scores.max
+  end
+
   def athletes_meet
     AthletesMeet.where(athlete: athlete, meet: meet).first
   end
