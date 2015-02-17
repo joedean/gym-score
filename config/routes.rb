@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :athletes_events_meets
+  resources :events, :athletes_events_meets
 
-  resources :athletes do
-    resources :events do
-      resource :meets
-    end
-  end
+  get 'meets/:meet_id/athletes/:athlete_id/events', to: 'athletes_events_meets#index', as: :meet_athlete_events
+  get 'athletes/:athlete_id/events/:event_id/meets', to: 'athletes_events_meets#index', as: :athlete_event_meets
 
   resources :meets do
-    resources :athletes do
-      resources :events
-    end
+    resources :athletes, shallow: true
+  end
+
+  resources :athletes do
+    resources :events
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

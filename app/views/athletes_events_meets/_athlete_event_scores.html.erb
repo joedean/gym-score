@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1><%= athlete.full_name %> <%= event.type.underscore.humanize %> Event Scores</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Meet Name</th>
+        <th>Meet Date</th>
+        <th>Score</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, athletes_events_meets) do |athletes_events_meet| %>
+        <td>
+          <%= link_to(athletes_events_meet.meet.name,
+                      meet_athlete_events_path(athletes_events_meet.meet,
+                                               athlete)) %>
+        </td>
+        <td><%= athletes_events_meet.meet.meet_date %></td>
+        <td><%= athletes_events_meet.score %></td>
+        <td><%= athletes_events_meet.place %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

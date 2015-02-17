@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1><%= meet.name %> <%= athlete.full_name %> Event Scores</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Score</th>
+        <th>Place</th>
+        <th>Personal Best</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= content_tag_for(:tr, athletes_events_meets) do |athletes_events_meet| %>
+        <td>
+          <%= link_to(athletes_events_meet.event.type.underscore.humanize,
+                      athlete_event_meets_path(athlete,
+                                               athletes_events_meet.event)) %>
+        </td>
+        <td><%= best_in_place athletes_events_meet, :score, as: :input, pattern: "[0-9]*" %></td>
+        <td><%= best_in_place athletes_events_meet, :place, as: :input, pattern: "[0-9]*" %></td>
+        <td><%= athlete.personal_best athletes_events_meet.event %></td>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <td>Overall</td>
+      <td id="overall-score"><%= overall_score %></td>
+      <td>1</td>
+      <td></td>
+    </tfoot>
+  </table>
+</div>

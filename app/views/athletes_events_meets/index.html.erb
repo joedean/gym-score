@@ -1,0 +1,14 @@
+<% if @athletes_events_meets_collection.meet && @athletes_events_meets_collection.athlete %>
+  <%= render(partial: 'meet_event_scores',
+             locals: { meet: @athletes_events_meets_collection.meet,
+                       athlete: @athletes_events_meets_collection.athlete,
+                       athletes_events_meets: @athletes_events_meets_collection.athletes_events_meets,
+                       overall_score: @athletes_events_meets_collection.overall_score } ) %>
+<% elsif @athletes_events_meets_collection.athlete && @athletes_events_meets_collection.event %>
+  <%= render(partial: 'athlete_event_scores',
+             locals: { athlete: @athletes_events_meets_collection.athlete,
+                       event: @athletes_events_meets_collection.event,
+                       athletes_events_meets: @athletes_events_meets_collection.athletes_events_meets } ) %>
+<% else %>
+  <h1> Nothing to view!</h1>
+<% end %>
