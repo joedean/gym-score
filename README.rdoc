@@ -6,16 +6,23 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
 
 * System dependencies
 
 * Configuration
+** bundle
 
 * Database creation
+** Setup postgresql
 
 * Database initialization
+** rake db:create
+** rake db:migrate
+** rake db:seed - Sets up the initial set of default meet events
 
 * How to run the test suite
+** rspec
 
 * Services (job queues, cache servers, search engines, etc.)
 
