@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Event
   <% end %>
-  <h1><%= tournament_name %> <%= athlete_name %> Events</h1>
+  <h1>Events</h1>
 </div>
 
 <div class="table-responsive">
@@ -11,28 +11,19 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Score</th>
-        <th>Place</th>
-        <th>Personal Best</th>
+        <th>Start Value</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <%= content_tag_for(:tr, @event_collection.athletes_events_meets) do |athletes_events_meet| %>
-        <td>
-          <%= link_to(athletes_events_meet.event.type.underscore.humanize,
-                      athlete_event_meets_path(@event_collection.athlete,
-                                              athletes_events_meet.event)) %>
-        </td>
-        <td><%= best_in_place athletes_events_meet, :score, as: :input, pattern: "[0-9]*" %></td>
-        <td><%= best_in_place athletes_events_meet, :place, as: :input, pattern: "[0-9]*" %></td>
-        <td><%= @event_collection.athlete.personal_best athletes_events_meet.event %></td>
+      <%= content_tag_for(:tr, @events) do |event| %>
+        <td><%= event.name %></td>
+        <td><%= event.start_value %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
       <% end %>
     </tbody>
-    <tfoot>
-      <td>Overall</td>
-      <td id="overall-score"><%= @event_collection.overall_score %></td>
-      <td><%= @event_collection.overall_place %></td>
-      <td></td>
-    </tfoot>
   </table>
 </div>

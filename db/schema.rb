@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150216164501) do
   add_index "athletes_meets", ["meet_id"], name: "index_athletes_meets_on_meet_id"
 
   create_table "events", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.decimal  "start_value", precision: 8, scale: 1
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

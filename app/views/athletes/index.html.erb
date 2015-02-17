@@ -26,7 +26,13 @@
     <tbody>
       <%= content_tag_for(:tr, @athlete_collection.athletes) do |athlete| %>
         <td><%= athlete.first_name %></td>
-        <td><%= link_to athlete.last_name, meet_athlete_events_path(@athlete_collection.meet, athlete) %></td>
+        <td>
+          <% if @athlete_collection.meet %>
+            <%= link_to athlete.last_name, meet_athlete_events_path(@athlete_collection.meet, athlete) %>
+          <% else %>
+            <%= athlete.last_name %>
+          <% end %>
+        </td>
         <td><%= athlete.age_level %></td>
         <td><%= athlete.class_level %></td>
         <td><%= athlete.birth_date %></td>

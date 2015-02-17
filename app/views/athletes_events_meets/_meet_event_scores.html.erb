@@ -15,7 +15,7 @@
     <tbody>
       <%= content_tag_for(:tr, athletes_events_meets) do |athletes_events_meet| %>
         <td>
-          <%= link_to(athletes_events_meet.event.type.underscore.humanize,
+          <%= link_to(athletes_events_meet.event.name,
                       athlete_event_meets_path(athlete,
                                                athletes_events_meet.event)) %>
         </td>
@@ -27,7 +27,7 @@
     <tfoot>
       <td>Overall</td>
       <td id="overall-score"><%= overall_score %></td>
-      <td>1</td>
+      <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, patter: "[0-9]*" %></td>
       <td></td>
     </tfoot>
   </table>

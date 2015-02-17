@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :athletes, through: :athletes_events_meets
   has_many :meets, through: :athletes_events_meets
 
-  validates :type, presence: true
+  validates :name, presence: true
 
   def self.by_meet(meet)
     eager_load(:meets).where("meets.id = ?", meet.id)

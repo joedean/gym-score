@@ -1,4 +1,4 @@
-class AthletesEventsMeetsCollection
+class AthletesEventsMeetCollection
 
   attr_accessor :meet, :athlete, :event, :params
 
@@ -20,10 +20,11 @@ class AthletesEventsMeetsCollection
   end
 
   def overall_score
-    53.0
+    athletes_events_meets.map(&:score).inject(:+)
   end
 
-  def overall_place
-    1
+  def athletes_meet
+    AthletesMeet.where(athlete: athlete, meet: meet).first
   end
+
 end

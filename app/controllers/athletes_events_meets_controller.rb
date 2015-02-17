@@ -4,7 +4,7 @@ class AthletesEventsMeetsController < ApplicationController
   # GET /athletes_events_meets
   # GET /athletes_events_meets.json
   def index
-    @athletes_events_meets_collection = AthletesEventsMeetsCollection.new params
+    @athletes_events_meet_collection = AthletesEventsMeetCollection.new params
   end
 
   # GET /athletes_events_meets/1

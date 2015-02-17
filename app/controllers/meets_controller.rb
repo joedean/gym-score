@@ -71,6 +71,6 @@ class MeetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def meet_params
       params.require(:meet).permit(:name, :venue, :address, :city, :state,
-                                   :zip, :event_date, { athlete_ids: [] })
+                                   :zip, :meet_date, { athlete_ids: [] })
     end
 end

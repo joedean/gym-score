@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Meet::DEFAULT_EVENT_NAMES.each do |event_name|
+  Event.create( { name: event_name } )
+end
