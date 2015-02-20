@@ -4,7 +4,7 @@ class MeetsController < ApplicationController
   # GET /meets
   # GET /meets.json
   def index
-    @meets = Meet.all
+    @meets = Meet.order_by_meet_date
   end
 
   # GET /meets/1
