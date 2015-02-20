@@ -13,9 +13,10 @@
       <tr>
         <th>First name</th>
         <th>Last name</th>
+        <th>Birth date</th>
+        <th>Age</th>
         <th>Age level</th>
         <th>Class level</th>
-        <th>Birth date</th>
         <th>Start date</th>
         <th></th>
         <th></th>
@@ -33,9 +34,10 @@
             <%= athlete.last_name %>
           <% end %>
         </td>
+        <td><%= athlete.birth_date %></td>
+        <td><%= athlete.age %></td>
         <td><%= athlete.age_level %></td>
         <td><%= athlete.class_level %></td>
-        <td><%= athlete.birth_date %></td>
         <td><%= athlete.start_date %></td>
         <td><%= link_to 'Show', athlete %></td>
         <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>

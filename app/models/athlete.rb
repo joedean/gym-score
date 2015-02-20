@@ -4,6 +4,11 @@ class Athlete < ActiveRecord::Base
   has_many :athletes_events_meets
   has_many :events, through: :athletes_events_meets
 
+  def self.default_order
+    order :class_level, :birth_date
+
+  end
+
   def personal_best(event)
     AthletesEventsMeet.by_athlete_event(self, event).map(&:score).max
   end

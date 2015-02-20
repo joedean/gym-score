@@ -9,9 +9,9 @@ class AthleteCollection
 
   def athletes
     if meet
-      meet.athletes
+      meet.athletes.default_order
     else
-      Athlete.all
+      Athlete.default_order
     end
   end
 end

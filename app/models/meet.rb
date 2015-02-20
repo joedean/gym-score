@@ -8,7 +8,7 @@ class Meet < ActiveRecord::Base
 
   DEFAULT_EVENT_NAMES = ["Floor", "Pommel Horse", "Rings", "Vault", "Parallel Bars", "High Bars"]
 
-  def self.order_by_meet_date
+  def self.default_order
     order :meet_date
   end
 

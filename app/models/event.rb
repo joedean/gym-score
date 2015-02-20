@@ -14,6 +14,10 @@ class Event < ActiveRecord::Base
   end
 
   def self.by_athlete_meet(athlete, meet)
-    by_meet(meet).by_athlete(athlete)
+    by_meet(meet).by_athlete(athlete).default_order
+  end
+
+  def self.default_order
+    order :sort_order
   end
 end
