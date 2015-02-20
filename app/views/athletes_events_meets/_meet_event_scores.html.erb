@@ -22,15 +22,15 @@
                       athlete_event_meets_path(athlete,
                                                athletes_events_meet.event)) %>
         </td>
-        <td><%= best_in_place athletes_events_meet, :score, as: :input, pattern: "[0-9]*" %></td>
-        <td><%= best_in_place athletes_events_meet, :place, as: :input, pattern: "[0-9]*" %></td>
+        <td><%= best_in_place athletes_events_meet, :score, as: :input, html_attrs: { type: "number", step: "0.1", style: "width: 50px;" } %></td>
+        <td><%= best_in_place athletes_events_meet, :place, as: :input, html_attrs: { type: "number", style: "width: 50px;" } %></td>
         <td><%= athlete.personal_best athletes_events_meet.event %></td>
       <% end %>
     </tbody>
     <tfoot>
       <td>Overall</td>
       <td id="overall-score"><%= overall_score %></td>
-      <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, patter: "[0-9]*" %></td>
+      <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, html_attrs: { type: "number", style: "width: 50px;" } %></td>
       <td><%= @athletes_events_meet_collection.personal_best_overall_score %></td>
     </tfoot>
   </table>
