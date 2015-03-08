@@ -3,6 +3,7 @@
              locals: { meet: @athletes_events_meet_collection.meet,
                        athlete: @athletes_events_meet_collection.athlete,
                        athletes_events_meets: @athletes_events_meet_collection.athletes_events_meets,
+                       meet_names: @athletes_events_meet_collection.meet_names,
                        overall_score: @athletes_events_meet_collection.overall_score } ) %>
 <% elsif @athletes_events_meet_collection.athlete && @athletes_events_meet_collection.event %>
   <%= render(partial: 'athlete_event_scores',

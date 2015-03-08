@@ -12,6 +12,9 @@
         <th>Event</th>
         <th>Score</th>
         <th>Place</th>
+        <% meet_names.each do |meet_name| %>
+          <th><%= meet_name %></th>
+        <% end %>
         <th>Personal Best</th>
       </tr>
     </thead>
@@ -24,6 +27,11 @@
         </td>
         <td><%= best_in_place athletes_events_meet, :score, as: :input, html_attrs: { style: "width: 50px;" } %></td>
         <td><%= best_in_place athletes_events_meet, :place, as: :input, html_attrs: { pattern: "[0-9]*", style: "width: 50px;" } %></td>
+        <% meet_names.each do |meet_name| %>
+          <% @athletes_events_meet_collection.meets(athletes_events_meet.event, meet_name).each do |event_meet| %>
+            <td><%= event_meet.score %></td>
+          <% end %>
+        <% end %>
         <td><%= athlete.personal_best athletes_events_meet.event %></td>
       <% end %>
     </tbody>
@@ -31,6 +39,9 @@
       <td>Overall</td>
       <td id="overall-score"><%= overall_score %></td>
       <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, html_attrs: { pattern: "[0-9]*", style: "width: 50px;" } %></td>
+      <% meet_names.each { |_| %>
+        <td></td>
+      <% } %>
       <td><%= @athletes_events_meet_collection.personal_best_overall_score %></td>
     </tfoot>
   </table>
