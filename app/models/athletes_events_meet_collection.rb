@@ -36,8 +36,8 @@ class AthletesEventsMeetCollection
     AthletesMeet.where(athlete: athlete, meet: meet).first
   end
 
-  def meets(event, name)
-    AthletesEventsMeet.where(event: event, meet: Meet.where(name: name))
+  def meets(event, name, athlete)
+    AthletesEventsMeet.where(athlete: athlete, event: event, meet: Meet.where(name: name))
   end
 
   def meet_names
