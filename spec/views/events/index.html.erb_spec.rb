@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "events/index", :type => :view do
   let!(:meet) { create :meet }
-  let(:param) { { tournament_id: meet.tournament.id,
+  let(:param) { { meet_id: meet.meet.id,
                   athlete_id: meet.athlete.id } }
 
   before(:each) do

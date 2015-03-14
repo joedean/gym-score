@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "tournaments/index", :type => :view do
+RSpec.describe "meets/index", :type => :view do
   before(:each) do
-    assign(:tournaments, [
-      Tournament.create!(
+    assign(:meets, [
+      Meet.create!(
         :name => "Name",
         :venue => "Venue",
         :address => "Address",
@@ -11,7 +11,7 @@ RSpec.describe "tournaments/index", :type => :view do
         :state => "State",
         :zip => "Zip"
       ),
-      Tournament.create!(
+      Meet.create!(
         :name => "Name",
         :venue => "Venue",
         :address => "Address",
@@ -22,7 +22,7 @@ RSpec.describe "tournaments/index", :type => :view do
     ])
   end
 
-  it "renders a list of tournaments" do
+  it "renders a list of meets" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Venue".to_s, :count => 2

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "events/edit", :type => :view do
   before(:each) do
     @event = assign(:event, Event.create!(
-      :tournament => nil,
+      :meet => nil,
       :athlete => nil,
       :type => Event::TYPES.first,
       :score => 1.5,
@@ -16,7 +16,7 @@ RSpec.describe "events/edit", :type => :view do
 
     assert_select "form[action=?][method=?]", event_path(@event), "post" do
 
-      assert_select "input#event_tournament_id[name=?]", "event[tournament_id]"
+      assert_select "input#event_meet_id[name=?]", "event[meet_id]"
 
       assert_select "input#event_athlete_id[name=?]", "event[athlete_id]"
 

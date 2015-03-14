@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "events/show", :type => :view do
   before(:each) do
     @event = assign(:event, Event.create!(
-      :tournament => nil,
+      :meet => nil,
       :athlete => nil,
       :type => Event::TYPES.first,
       :score => 1.5,

@@ -1,34 +1,34 @@
 require "rails_helper"
 
-RSpec.describe TournamentsController, :type => :routing do
+RSpec.describe MeetsController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/tournaments").to route_to("tournaments#index")
+      expect(:get => "/meets").to route_to("meets#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/tournaments/new").to route_to("tournaments#new")
+      expect(:get => "/meets/new").to route_to("meets#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/tournaments/1").to route_to("tournaments#show", :id => "1")
+      expect(:get => "/meets/1").to route_to("meets#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/tournaments/1/edit").to route_to("tournaments#edit", :id => "1")
+      expect(:get => "/meets/1/edit").to route_to("meets#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/tournaments").to route_to("tournaments#create")
+      expect(:post => "/meets").to route_to("meets#create")
     end
 
     it "routes to #update" do
-      expect(:put => "/tournaments/1").to route_to("tournaments#update", :id => "1")
+      expect(:put => "/meets/1").to route_to("meets#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/tournaments/1").to route_to("tournaments#destroy", :id => "1")
+      expect(:delete => "/meets/1").to route_to("meets#destroy", :id => "1")
     end
 
   end

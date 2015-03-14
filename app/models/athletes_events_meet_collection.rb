@@ -20,7 +20,7 @@ class AthletesEventsMeetCollection
   end
 
   def overall_score
-    athletes_events_meets.map(&:score).inject(:+)
+    athletes_events_meets.map(&:score).sum
   end
 
   def personal_best_overall_score

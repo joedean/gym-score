@@ -1,5 +1,5 @@
 module EventsHelper
-  def tournament_name
+  def meet_name
     return unless @event_collection
     @event_collection.meet.name if @event_collection.meet
   end
