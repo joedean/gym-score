@@ -44,7 +44,9 @@
       <td id="overall-score"><%= overall_score %></td>
       <td><%= best_in_place @athletes_events_meet_collection.athletes_meet, :place, as: :input, html_attrs: { pattern: "[0-9]*", style: "width: 50px;" } %></td>
       <% meet_names.each { |_| %>
-        <td></td>
+        <% if meet_name != meet.name %>
+          <td></td>
+        <% end %>
       <% } %>
       <td><%= @athletes_events_meet_collection.personal_best_overall_score %></td>
     </tfoot>
